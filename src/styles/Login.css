@@ -1,6 +1,6 @@
 .back {
   background-color: black;
-  min-height: 93vh;
+  min-height: calc(100vh - 70px);
   display: flex;
   justify-content: center;
   align-items: center;
