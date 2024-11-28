@@ -1,0 +1,29 @@
+.window {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.guessingWindow {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 20vw;
+}
+
+.guessingWindow input {
+  width: 90%;
+  outline: auto;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 40px;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 20px 45px 20px 20px;
+}
+
+.mapWindow {
+  margin: 0;
+  width: 80vw;
+}

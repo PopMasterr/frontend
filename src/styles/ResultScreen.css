@@ -1,0 +1,63 @@
+.window {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.guessingWindow {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 20vw;
+}
+
+.guessingWindow button {
+  margin-top: 10px;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  height: 40px;
+  width: 200px;
+  font-size: 20px;
+  box-shadow: -5px 20px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+.color1 {
+  background: linear-gradient(to right, #83a4d4, #66fbff);
+}
+
+.color2 {
+  background: linear-gradient(to right, #d4839d, #d61717);
+}
+
+.mapWindow {
+  position: relative;
+  margin: 0;
+  width: 80vw;
+}
+
+/* HTML: <div class="loader"></div> */
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Static centering */
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid;
+  border-color: #000 #0000;
+  animation: rotateLoader 1s infinite; /* Use a custom animation for rotation */
+}
+
+@keyframes rotateLoader {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg); /* Maintain centering */
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg); /* Rotate around center */
+  }
+}
