@@ -10,20 +10,15 @@ import "../styles/Profile.css";
 import DefaultProfile from "../assets/Profile.png";
 import { LoginContext } from "../pages/Login";
 import Cookies from "js-cookie";
-import debounce from "lodash.debounce";
 import { Badges } from "../helpers/Badges";
 import klaustukas from "../assets/klaustukas.png";
-import "react-image-crop/dist/ReactCrop.css";
-import ReactCrop from 'react-image-crop';
+import CropScreen from "../components/CropScreen";
+import { FaPencil } from "react-icons/fa6";
 
 function Profile() {
-  const [height, setHeight] = useState(0)
-  const [width, setWidth] = useState(0)
-  const ref = useRef(null)
   const { username } = useContext(LoginContext);
-  const [tempProfilePicture, setTempProfilePicture] = useState();
   const [profilePictureURL, setProfilePictureURL] = useState(DefaultProfile);
-  const [crop, setCrop] = useState();
+  const [CropScreenOpen, setCropScreenOpen] = useState(false);
   const apiURL = process.env.REACT_APP_API + "api/profileImage/upload";
   const apiUpdateImageURL = process.env.REACT_APP_API + "api/profileImage/updateImage";
   const apiGetImageURL = process.env.REACT_APP_API + "api/profileImage/getImage";
@@ -37,32 +32,7 @@ function Profile() {
       []
   );
 
-  const handleProfilePictureUpload = useCallback(
-    debounce(async (event) => {
-      const file = event.target.files[0];
-  
-      // Check if the file is an image
-      if (!file.type.startsWith("image/")) {
-        alert("Please upload a valid image file.");
-        return;
-      }
-  
-      if (file.size > 5 * 1024 * 1024) {
-        alert("Please upload an image smaller than 5MB.");
-        return;
-      }
-
-      const reader = new FileReader();
-      reader.addEventListener("load", () => {
-        setTempProfilePicture(reader.result);
-      });
-  
-      reader.readAsDataURL(file);
-    }, 300),
-    []
-  );
-
-  const handleProfilePictureChange = async (imageSrc, crop) => {
+  const handleProfilePictureChange = async (imageSrc, crop, width, height) => {
     console.log(crop.x, crop.y, crop.width, crop.height);
     const image = new Image();
     image.src = imageSrc;
@@ -114,6 +84,7 @@ function Profile() {
             if (!result.error) {
               console.log("Profile picture uploaded successfully!");
               await getProfilePicture(); // Fetch the latest profile picture
+              window.location.reload();
             }
           } catch (error) {
             console.error(
@@ -189,11 +160,6 @@ function Profile() {
   };
 
   useEffect(() => {
-    setHeight(ref.current.clientHeight)
-    setWidth(ref.current.clientWidth)
-  })
-
-  useEffect(() => {
     getProfilePicture();
     getProfileStatistics();
   }, []); // Empty dependency array ensures this runs only once
@@ -206,22 +172,14 @@ function Profile() {
                 className="circle"
                 style={{backgroundImage: `url(${profilePictureURL})`}}
             ></div>
-            <input
-                type="file"
-                id="file"
-                accept="image/*"
-                onChange={handleProfilePictureUpload}
+            <button className="edit-button" onClick={() => setCropScreenOpen(!CropScreenOpen)}><FaPencil/></button>
+            {CropScreenOpen &&
+            <CropScreen
+              hasProfilePicture={profilePictureURL===DefaultProfile ? false : true}
+              onClose={() => setCropScreenOpen(false)}
+              onSubmit={handleProfilePictureChange}
             />
-            
-            <ReactCrop
-              aspect={1}
-              circularCrop
-              crop={crop}
-              onChange={c => setCrop(c)}
-              >
-              <img ref={ref} src={tempProfilePicture} alt="Crop me" />
-            </ReactCrop>
-            <button onClick={() => handleProfilePictureChange(tempProfilePicture, crop)}>Submit</button>
+            }
             <div>{username}</div>
           </div>
           <div className="profile-statistics">
