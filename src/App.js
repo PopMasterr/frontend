@@ -15,6 +15,7 @@ import { useState, useEffect, useContext } from "react";
 import Cookies from "js-cookie";
 import { IdleTimerProvider, useIdleTimer } from "react-idle-timer";
 import IdleOverlay from "./helpers/IdleOverlay";
+import Multiplayer  from "./pages/Multiplayer";
 
 function App() {
   const { logged, setLogged, isIdle, setIsIdle, username, setUsername } =
@@ -57,6 +58,7 @@ function App() {
             <Route exact path="/streak" element={<Streak />} />
             <Route exact path="/error" element={<Error />} />
             <Route exact path="/resultscreen" element={<ResultScreen />} />
+            <Route exact path="/multiplayer" element={<Multiplayer />} />
             <Route
               exact
               path="/resultstreakscreen"
