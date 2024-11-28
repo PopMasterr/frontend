@@ -1,22 +1,25 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MapContainer, TileLayer, Rectangle, useMap } from "react-leaflet";
 import { GameContext } from "../pages/PopGame";
+import Cookies from "js-cookie";
 import "leaflet/dist/leaflet.css";
 import "../styles/ResultScreen.css";
 
 function ResultScreen() {
   const {
-    value,
-    setValue,
-    guess,
-    setGuess,
-    population,
-    score,
+    correct,
+    streakScore,
+    populationBlue,
+    populationRed,
     cx1,
     cy1,
     cx2,
     cy2,
+    cxr1,
+    cyr1,
+    cxr2,
+    cyr2,
   } = useContext(GameContext);
 
   function FitBounds({ bounds }) {
@@ -28,9 +31,40 @@ function ResultScreen() {
 
   const navigate = useNavigate();
 
+  const [highestStreak, setHighestStreak] = useState(0);
+
+  const apiGetProfileStatistics =
+    process.env.REACT_APP_API + "api/userMetrics/getMetrics";
+
+  const getHighScore = async () => {
+    try {
+      const response = await fetch(apiGetProfileStatistics, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: Cookies.get("AuthToken"),
+          refreshToken: Cookies.get("RefreshToken"),
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+
+      if (!result.error) {
+        setHighestStreak(result.data.highest_streak);
+      }
+    } catch (error) {
+      console.error(
+        "There was an error fetching the profile statistics!",
+        error
+      );
+    }
+  };
+
   function handleAgain() {
-    setValue("");
-    setGuess(0);
     navigate("/streak");
     sessionStorage.removeItem("reloadas");
   }
@@ -47,13 +81,49 @@ function ResultScreen() {
     }
   }, []);
 
+  function displayScore() {
+    getHighScore();
+    if (correct) {
+      return (
+        <span>
+          Correct! <br />
+          <span style={{ color: "blue" }}>
+            {new Intl.NumberFormat("en-US").format(populationBlue)}
+          </span>
+          <br />
+          vs
+          <br />
+          <span style={{ color: "red" }}>
+            {new Intl.NumberFormat("en-US").format(populationRed)}
+          </span>
+        </span>
+      );
+    } else {
+      return (
+        <span>
+          Incorrect! <br />
+          <span style={{ color: "blue" }}>
+            {new Intl.NumberFormat("en-US").format(populationBlue)}
+          </span>
+          <br />
+          vs <br />
+          <span style={{ color: "red" }}>
+            {new Intl.NumberFormat("en-US").format(populationRed)}
+          </span>
+        </span>
+      );
+    }
+  }
+
   return (
     <div className="window">
       <div className="guessingWindow">
-        <p>{score} points</p>
-        <h1>{new Intl.NumberFormat("en-US").format(population)}</h1>
-        <p>Your guess was {new Intl.NumberFormat("en-US").format(guess)}</p>
-        <button onClick={handleAgain}>Play again</button>
+        <h1>{displayScore()}</h1>
+        <h1>Current Streak: {streakScore}</h1>
+        <button onClick={handleAgain}>
+          {correct ? "Continue" : "Play again"}
+        </button>
+        <p>High Score: {highestStreak}</p>
       </div>
       <div className="mapWindow">
         <MapContainer
@@ -74,8 +144,8 @@ function ResultScreen() {
           />
           <Rectangle
             bounds={[
-              [10, 10],
-              [100, 100],
+              [cyr1, cxr1],
+              [cyr2, cxr2],
             ]}
             pathOptions={{ color: "red", weight: 2 }}
           />

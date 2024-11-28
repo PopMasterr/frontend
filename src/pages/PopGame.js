@@ -10,22 +10,38 @@ export const GameContext = createContext();
 export const GameProvider = ({ children }) => {
   const [guess, setGuess] = useState(0);
   const [population, setPopulation] = useState(0);
+  const [populationBlue, setPopulationBlue] = useState(0);
+  const [populationRed, setPopulationRed] = useState(0);
+  const [streakScore, setStreakScore] = useState(0);
+  const [correct, setCorrect] = useState(false);
   const [score, setScore] = useState(0);
   const [cx1, setcx1] = useState(0);
   const [cy1, setcy1] = useState(0);
   const [cx2, setcx2] = useState(0);
   const [cy2, setcy2] = useState(0);
+  const [cxr1, setcxr1] = useState(0);
+  const [cyr1, setcyr1] = useState(0);
+  const [cxr2, setcxr2] = useState(0);
+  const [cyr2, setcyr2] = useState(0);
   const [value, setValue] = useState("");
 
   return (
     <GameContext.Provider
       value={{
+        correct,
+        setCorrect,
         guess,
         setGuess,
         population,
         setPopulation,
+        populationBlue,
+        setPopulationBlue,
+        populationRed,
+        setPopulationRed,
         score,
         setScore,
+        streakScore,
+        setStreakScore,
         cx1,
         setcx1,
         cy1,
@@ -34,6 +50,14 @@ export const GameProvider = ({ children }) => {
         setcx2,
         cy2,
         setcy2,
+        cxr1,
+        setcxr1,
+        cyr1,
+        setcyr1,
+        cxr2,
+        setcxr2,
+        cyr2,
+        setcyr2,
         value,
         setValue,
       }}
@@ -63,11 +87,6 @@ function PopGame() {
     value,
     setValue,
   } = useContext(GameContext);
-
-  const [x1, setx1] = useState(0);
-  const [y1, sety1] = useState(0);
-  const [x2, setx2] = useState(0);
-  const [y2, sety2] = useState(0);
 
   const [loaded, isLoaded] = useState(false);
 

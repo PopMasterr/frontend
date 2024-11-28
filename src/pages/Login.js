@@ -105,7 +105,9 @@ function Login() {
                 onClick={slaptazodis}
               />
             </div>
-            {passwordError && <AuthError message="Wrong password!" />}
+            {passwordError && (
+              <AuthError message="Wrong username or password!" />
+            )}
             <div className="remember-forgot">
               <label>
                 <input type="checkbox" />
