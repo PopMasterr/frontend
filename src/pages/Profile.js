@@ -167,9 +167,37 @@ function Profile() {
     }
   };
 
+  const apiGetAchievementsStatistics =
+    process.env.REACT_APP_API + "api/userAchievements/getUserAchievements";
+  const getAchievementsStatistics = async () => {
+    try {
+      const response = await fetch(apiGetAchievementsStatistics, {
+        method: "GET",
+        headers: getAuthHeaders,
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+
+      if (!result.error) {
+        result.map((id) => (Badges[id - 1].obtained = true));
+        result.map((id) => console.log(Badges[id - 1].obtained));
+      }
+    } catch (error) {
+      console.error(
+        "There was an error fetching the profile statistics!",
+        error
+      );
+    }
+  };
+
   useEffect(() => {
     getProfilePicture();
     getProfileStatistics();
+    getAchievementsStatistics();
   }, []); // Empty dependency array ensures this runs only once
 
   return (

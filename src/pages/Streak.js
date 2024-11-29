@@ -144,8 +144,8 @@ function Streak() {
           )}
           <FitBounds
             bounds={[
-              [cy1, cx1],
-              [cy2, cx2],
+              [Math.min(cy1, cyr1), Math.min(cx1, cxr1)],
+              [Math.max(cy2, cyr2), Math.max(cx2, cxr2)],
             ]}
           />
         </MapContainer>
