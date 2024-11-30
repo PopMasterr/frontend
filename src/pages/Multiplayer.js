@@ -4,11 +4,11 @@ import {MapContainer, TileLayer, Rectangle, useMap} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import Cookies from "js-cookie";
 import "../styles/PopGame.css";
+import { FaGamepad } from "react-icons/fa";
+import CreateOrJoinMultiplayerGame from "../components/CreateOrJoinMultiplayerGame";
 
 function Multiplayer() {
 
-    const createGameSessionAPI = process.env.REACT_APP_API + "api/gameSessions/createGameSession";
-    const getGameSessionIdAPI = process.env.REACT_APP_API + "api/gameSessions/getGameSessionByCode/";
     const getCoordinatesAPI = process.env.REACT_APP_API + "api/gameRounds/getGameRoundCoordinates";
     const getPopulationAPI = process.env.REACT_APP_API + "api/gameRounds/getGameRoundPopulationAndScore";
     const getGameScoresAPI = process.env.REACT_APP_API + "api/gameScores/getGameScores/";
@@ -18,36 +18,6 @@ function Multiplayer() {
         refreshToken: Cookies.get("RefreshToken"),
     };
 
-
-    const createNewGame = async () => {
-        const roundCount = document.getElementById("roundCount").value;
-
-        const response = await fetch(createGameSessionAPI, {
-            method: "POST",
-            headers: {
-                ...getAuthHeaders,
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({numberOfRounds: roundCount}),
-        }).then((response) => response.json());
-        if (!response.error) {
-            console.log("Game session created", response);
-        }
-    }
-
-    const getGameSessionId = async () => {
-        const gameCode = document.getElementById("gameCode").value;
-        const gameIdResponse = await fetch(getGameSessionIdAPI + gameCode, {
-            method: "GET",
-            headers: {
-                ...getAuthHeaders,
-                "Content-Type": "application/json"
-            },
-        }).then((gameIdResponse) => gameIdResponse.json());
-        if (!gameIdResponse.error) {
-            console.log("Game session id", gameIdResponse);
-        }
-    }
 
     const getCoordinates = async (gameId, round) => {
         const Coordinates = await fetch(getCoordinatesAPI + "?gameSessionId=" + gameId + "&round=" + round, {
@@ -84,15 +54,32 @@ function Multiplayer() {
         }
     }
 
+    const [isMultiplayerOpen, setIsMultiplayerOpen] = useState(false);
+
         return (
             <div>
                 <h1>Multiplayer</h1>
-                <h1>CREATE NEW GAME. ENTER ROUND COUNT</h1>
-                <input type="number" id="roundCount"/>
-                <input type="button" id="submitRoundCount" value="Submit" onClick={() => createNewGame()}/>
-                <h1>GET GAME ID. ENTER GAME CODE</h1>
-                <input type="text" id="gameCode"/>
-                <input type="button" id="submitGameCode" value="Submit" onClick={() => getGameSessionId()}/>
+
+                <div className="centras">
+                    <div className="profile">
+                        {/* Other profile content */}
+                        <button
+                            className="edit-button"
+                            onClick={() => setIsMultiplayerOpen(!isMultiplayerOpen)}
+                        >
+                            <FaGamepad />
+                        </button>
+                        {isMultiplayerOpen && (
+                            <CreateOrJoinMultiplayerGame
+                                onClose={() => setIsMultiplayerOpen(false)}
+                            />
+                        )}
+                    </div>
+                </div>
+                );
+
+
+
                 <h1>GET COORDINATES. ENTER GAME ID, ROUND ID</h1>
                 <div><input type="text" id="gameIdForCoord"/></div>
                 <div><input type="number" id="roundForCoord"/></div>
