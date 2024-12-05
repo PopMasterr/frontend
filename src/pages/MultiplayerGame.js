@@ -5,14 +5,11 @@ import "leaflet/dist/leaflet.css";
 import Cookies from "js-cookie";
 import "../styles/PopGame.css";
 import { GameContext } from "./PopGame";
-
+import { FaRegCopy } from "react-icons/fa";
 
 function MultiplayerGame() {
-
-
-
     const location = useLocation();
-    const { gameId, round } = location.state;
+    const { gameId, round, gameCode } = location.state;
 
     const getAuthHeaders = {
         authorization: Cookies.get("AuthToken"),
@@ -95,7 +92,7 @@ function MultiplayerGame() {
                 console.log(result);
                 setPopulation(result.population);
                 setScore(result.score);
-                navigate("/resultmultiplayerscreen", { state: { gameId: gameId, round: round } });
+                navigate("/resultmultiplayerscreen", { state: { gameId: gameId, round: round, code: gameCode} });
             }
         }
     }
@@ -115,9 +112,18 @@ function MultiplayerGame() {
             map.fitBounds(bounds);
         }, [map, bounds]);
     }
+
+    const copyGameCodeToClipboard = () => {
+        navigator.clipboard.writeText(gameCode);
+    };
+
     return (
         <div className="window">
             <div className="guessingWindow">
+                <div className="location-info">
+                    <p>Round: {round}</p>
+                    <p>Code: {gameCode} <FaRegCopy onClick={copyGameCodeToClipboard} style={{ cursor: 'pointer' }} /></p>
+                </div>
                 <h1>Guess the population within the rectangle</h1>
                 <input
                     type="text"
@@ -134,7 +140,7 @@ function MultiplayerGame() {
             </div>
             <div className="mapWindow">
                 <MapContainer
-                    style={{ height: "93vh", width: "100%" }}
+                    style={{height: "93vh", width: "100%"}}
                     worldCopyJump={true}
                 >
                     {loaded ? (

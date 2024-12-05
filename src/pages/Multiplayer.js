@@ -62,12 +62,10 @@ function Multiplayer() {
 
                 <div className="centras">
                     <div className="profile">
-                        {/* Other profile content */}
                         <button
                             className="edit-button"
                             onClick={() => setIsMultiplayerOpen(!isMultiplayerOpen)}
                         >
-                            <FaGamepad />
                         </button>
                         {isMultiplayerOpen && (
                             <CreateOrJoinMultiplayerGame

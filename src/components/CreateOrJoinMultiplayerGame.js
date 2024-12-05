@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import "../styles/CreateOrJoinMultiplayerGame.css";
 import Cookies from "js-cookie";
-import { IoCloseCircleOutline } from "react-icons/io5";
+import { IoCloseCircleOutline, IoArrowBackCircleOutline } from "react-icons/io5";
+import { FaRegCopy } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-function CreateOrJoinMultiplayerGame(params){
-
+function CreateOrJoinMultiplayerGame(params) {
     const navigate = useNavigate();
     const [gameId, setGameId] = useState(null);
     const [isInputVisible, setIsInputVisible] = useState(true);
+    const [isCreateVisible, setIsCreateVisible] = useState(false);
+    const [isJoinVisible, setIsJoinVisible] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
 
     const createGameSessionAPI = process.env.REACT_APP_API + "api/gameSessions/createGameSession";
@@ -28,7 +30,7 @@ function CreateOrJoinMultiplayerGame(params){
                 ...getAuthHeaders,
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({numberOfRounds: roundCount}),
+            body: JSON.stringify({ numberOfRounds: roundCount }),
         }).then((response) => response.json());
         if (!response.error) {
             setGameId(response);
@@ -46,31 +48,71 @@ function CreateOrJoinMultiplayerGame(params){
             },
         }).then((gameIdResponse) => gameIdResponse.json());
         if (!gameIdResponse.error) {
-            navigate("/multiplayergame", { state: { gameId: gameIdResponse, round: 1 } });
+            navigate("/multiplayergame", { state: { gameId: gameIdResponse, round: 1, gameCode: document.getElementById("gameCode").value } });
         } else {
             setErrorMessage("Code doesn't exist");
         }
     }
 
-    return(
+    const startGame = async () => {
+        const gameIdResponse = await fetch(getGameSessionIdAPI + gameId, {
+            method: "GET",
+            headers: {
+                ...getAuthHeaders,
+                "Content-Type": "application/json"
+            },
+        }).then((gameIdResponse) => gameIdResponse.json());
+        if (!gameIdResponse.error) {
+            navigate("/multiplayergame", {state: {gameId: gameIdResponse, round: 1, gameCode: gameId}});
+        } else {
+            setErrorMessage("Code doesn't exist");
+        }
+    }
+
+    const copyGameIdToClipboard = () => {
+        navigator.clipboard.writeText(gameId);
+    }
+
+    return (
         <div className="create-multiplayer-background">
             <div className="create-multiplayer-container">
-                <button className="close-button" onClick={params.onClose}><IoCloseCircleOutline/></button>
-                <h1 className="c-mp-text">Create a new multiplayer game!</h1>
-                {isInputVisible ? (
+                <button className="close-button" onClick={params.onClose}><IoCloseCircleOutline /></button>
+                {!isCreateVisible && !isJoinVisible && (
                     <>
-                        <h2>Enter round count:</h2>
-                        <input type="number" id="roundCount" className="input-text" max="15" min="0" />
-                        <input type="button" id="submitRoundCount" value="Submit" onClick={createNewGame} />
+                        <button className="button bigger-button" onClick={() => setIsCreateVisible(true)}>Create Game</button>
+                        <button className="button bigger-button" onClick={() => setIsJoinVisible(true)}>Join Game</button>
                     </>
-                ) : (
-                    <h2>Game ID: {gameId}</h2>
                 )}
-                <h1 className="c-mp-text">Join a multiplayer game!</h1>
-                <h2>Enter game code:</h2>
-                <input type="text" id="gameCode" className="input-text" />
-                <input type="button" id="submitGameCode" value="Submit" onClick={getGameSessionId} />
-                {errorMessage && <p className="error-message">{errorMessage}</p>}
+                {isCreateVisible && (
+                    <>
+                        {isInputVisible ? (
+                            <>
+                                <h2>Enter round count:</h2>
+                                <input type="number" placeholder={5} id="roundCount" className="input-text round" max="15" min="0" />
+                                <input type="button" className="button" id="submitRoundCount" value="Submit" onClick={createNewGame} />
+                                <IoArrowBackCircleOutline onClick={() => setIsCreateVisible(false)} className="circle-button" />
+                            </>
+                        ) : (
+                            <>
+                                <h2>Game ID: {gameId} <FaRegCopy onClick={copyGameIdToClipboard}  style={{cursor: "pointer"}}/></h2>
+                                <button className="button" onClick={startGame}>Start Game</button>
+                                <IoArrowBackCircleOutline onClick={() => {
+                                    setIsCreateVisible(false);
+                                    setIsInputVisible(true);
+                                }} className="circle-button"/>
+                            </>
+                        )}
+                    </>
+                )}
+                {isJoinVisible && (
+                    <>
+                        <h2>Enter game code:</h2>
+                        <input type="text" id="gameCode" className="input-text" />
+                        <input type="button" className="button" id="submitGameCode" value="Submit" onClick={getGameSessionId} />
+                        {errorMessage && <p className="error-message">{errorMessage}</p>}
+                        <IoArrowBackCircleOutline onClick={() => setIsJoinVisible(false)} className="circle-button" />
+                    </>
+                )}
             </div>
         </div>
     )
