@@ -3,6 +3,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  min-height:calc(100vh-70px);
 }
 .guessingWindow {
   margin: 0;
@@ -13,15 +14,23 @@
   width: 20vw;
 }
 
+.guessingWindow h1 {
+  font-size: clamp(20px,4vw,24px);
+
+  margin:0;
+}
 .guessingWindow button {
   margin-top: 10px;
   border: none;
   border-radius: 100px;
   cursor: pointer;
   height: 40px;
-  width: 200px;
+  width: 90%;
   font-size: 20px;
   box-shadow: -5px 20px 10px 0px rgba(0, 0, 0, 0.25);
+  
+  min-width:100px;
+  max-width:175px;
 }
 
 .color1 {
@@ -59,5 +68,26 @@
   }
   100% {
     transform: translate(-50%, -50%) rotate(360deg); /* Rotate around center */
+  }
+}
+@media (max-width: 768px) {
+  .window {
+    flex-direction: column;
+  }
+  .guessingWindow {
+    width: 80vw;
+    margin-bottom:5px;
+  }
+  .guessingWindow input{
+    min-width: 127px;
+    max-width: 200px;
+  }
+  .guessingWindow button{
+    width:20vw;
+    min-width:100px;
+    max-width:175px;
+  }
+  .mapWindow {
+    width: 80vw;
   }
 }

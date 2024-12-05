@@ -5,7 +5,7 @@
   justify-content: center;
 }
 .guessingWindow {
-  margin: 0;
+  margin: 2px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,13 +16,14 @@
 .guessingWindow input {
   width: 90%;
   outline: auto;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 40px;
   box-sizing: border-box;
   font-size: 16px;
-  padding: 20px 45px 20px 20px;
+  padding: 5px 5px 5px 5px;
+  min-width: 127px;
+  max-width:200px;
 }
-
 .mapWindow {
   margin: 0;
   width: 80vw;

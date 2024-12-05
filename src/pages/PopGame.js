@@ -186,7 +186,7 @@ function PopGame() {
       </div>
       <div className="mapWindow">
         <MapContainer
-          style={{ height: "93vh", width: "100%" }}
+          style={{ height: "80vh", width: "100%" }}
           worldCopyJump={true}
         >
           {loaded ? (
