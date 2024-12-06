@@ -95,7 +95,7 @@ function CreateOrJoinMultiplayerGame(params) {
                         {isInputVisible ? (
                             <>
                                 <h2>Enter round count:</h2>
-                                <input type="number" placeholder={5} id="roundCount" className="input-text round" max="15" min="0" />
+                                <input type="number" placeholder={5} id="roundCount" className="input-text round" max="15" min="1" />
                                 <input type="button" className="button" id="submitRoundCount" value="Submit" onClick={createNewGame} />
                                 <IoArrowBackCircleOutline onClick={() => setIsCreateVisible(false)} className="circle-button" />
                             </>

@@ -92,7 +92,7 @@ function MultiplayerGame() {
                 console.log(result);
                 setPopulation(result.population);
                 setScore(result.score);
-                navigate("/resultmultiplayerscreen", { state: { gameId: gameId, round: round, code: gameCode} });
+                navigate("/resultmultiplayerscreen", { state: { gameId: gameId, round: round, gameCode: gameCode} });
             }
         }
     }

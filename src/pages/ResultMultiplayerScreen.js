@@ -5,11 +5,11 @@ import { GameContext } from "./PopGame";
 import "leaflet/dist/leaflet.css";
 import "../styles/ResultScreen.css";
 import Cookies from "js-cookie";
+import { FaRegCopy } from "react-icons/fa";
 
 function ResultMultiplayerScreen() {
     const location = useLocation();
-    const gameId = location.state.gameId;
-    const round = location.state.round;
+    const { gameId, round, gameCode } = location.state;
     const [gameScores, setGameScores] = useState([]);
 
     const {
@@ -66,7 +66,7 @@ function ResultMultiplayerScreen() {
     function handleAgain() {
         setValue("");
         setGuess(0);
-        navigate("/multiplayergame", { state: { gameId: gameId, round: round + 1 } });
+        navigate("/multiplayergame", { state: { gameId: gameId, round: round + 1, gameCode: gameCode} });
         sessionStorage.removeItem("reloadas");
     }
 
@@ -90,9 +90,17 @@ function ResultMultiplayerScreen() {
         getGameScoresUpToRound(gameId, round);
     }, [round, gameId]);
 
+    const copyGameCodeToClipboard = () => {
+        navigator.clipboard.writeText(gameCode);
+    };
+
     return (
         <div className="window">
             <div className="guessingWindow">
+                <div className="location-info">
+                    <p>Round: {round}</p>
+                    <p>Code: {gameCode} <FaRegCopy onClick={copyGameCodeToClipboard} style={{cursor: 'pointer'}}/></p>
+                </div>
                 <p>{score} points</p>
                 <h1>{new Intl.NumberFormat("en-US").format(population)}</h1>
                 <p>Your guess was {new Intl.NumberFormat("en-US").format(guess)}</p>
@@ -114,7 +122,7 @@ function ResultMultiplayerScreen() {
                 <MapContainer
                     center={[51.505, -0.09]}
                     zoom={10}
-                    style={{ height: "94vh", width: "100%" }}
+                    style={{height: "94vh", width: "100%"}}
                 >
                     <TileLayer
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
