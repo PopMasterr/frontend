@@ -24,7 +24,47 @@
   min-width: 127px;
   max-width:200px;
 }
+
+.guessing-button {
+  color:black;
+  padding: 0px;
+  width: 90%;
+}
+
 .mapWindow {
   margin: 0;
   width: 80vw;
+}
+
+.map-container{
+    height: 94vh;
+    width:100%;
+}
+
+@media (max-width: 768px) {
+
+  .map-container{
+    height: 70vh;
+    width:100%;
+  }
+
+  .window {
+    flex-direction: column;
+  }
+  .guessingWindow {
+    width: 80vw;
+    margin-bottom:5px;
+  }
+  .guessingWindow input{
+    min-width: 127px;
+    max-width: 200px;
+  }
+  .guessingWindow button{
+    width:20vw;
+    min-width:100px;
+    max-width:175px;
+  }
+  .mapWindow {
+    width: 80vw;
+  }
 }

@@ -180,13 +180,13 @@ function PopGame() {
             e.key === "Enter" && getPopulation();
           }}
         />
-        <button className="color1" onClick={getPopulation}>
+        <button className="generic-button guessing-button" onClick={getPopulation}>
           Guess
         </button>
       </div>
       <div className="mapWindow">
         <MapContainer
-          style={{ height: "80vh", width: "100%" }}
+          className="map-container"
           worldCopyJump={true}
         >
           {loaded ? (

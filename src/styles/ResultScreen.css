@@ -3,7 +3,6 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  min-height:calc(100vh-70px);
 }
 .guessingWindow {
   margin: 0;
@@ -70,7 +69,19 @@
     transform: translate(-50%, -50%) rotate(360deg); /* Rotate around center */
   }
 }
+
+.map-container{
+  height: 94vh;
+  width:100%;
+}
+
 @media (max-width: 768px) {
+
+  .map-container{
+    height: 70vh;
+    width:100%;
+  }
+
   .window {
     flex-direction: column;
   }

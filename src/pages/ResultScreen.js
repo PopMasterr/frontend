@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { MapContainer, TileLayer, Rectangle, useMap } from "react-leaflet";
 import { GameContext } from "../pages/PopGame";
 import "leaflet/dist/leaflet.css";
-import "../styles/ResultScreen.css";
+import "../styles/PopGame.css";
 
 function ResultScreen() {
   const {
@@ -53,13 +53,13 @@ function ResultScreen() {
         <p>{score} points</p>
         <h1>{new Intl.NumberFormat("en-US").format(population)}</h1>
         <p>Your guess was {new Intl.NumberFormat("en-US").format(guess)}</p>
-        <button onClick={handleAgain}>Play again</button>
+        <button className="generic-button" onClick={handleAgain}>Play again</button>
       </div>
       <div className="mapWindow">
         <MapContainer
           center={[51.505, -0.09]}
           zoom={10}
-          style={{ height: "94vh", width: "100%" }}
+          className="map-container"
         >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

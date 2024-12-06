@@ -21,7 +21,7 @@ function Home() {
           <div className="headerContainer">
             <p>Compete to become the POPMASTERR!!!</p>
           </div>
-          <Link id="mygtukas" to="/play">
+          <Link id="mygtukas" className="generic-button play-button" to="/play">
             Play
           </Link>
         </div>

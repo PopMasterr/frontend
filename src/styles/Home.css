@@ -37,21 +37,12 @@
   line-height: normal;
 }
 
-#mygtukas {
-  text-align: center;
-  border-radius: 100px;
-  cursor: pointer;
+.play-button {
   background: radial-gradient(824.07% 176.27% at 107.05% 123.9%, #33593C 0%, #75CD4C 100%);
-  width: 180px;
-  color: white;
-  font-size: 25px;
-  box-shadow: -5px 20px 10px 0px rgba(0, 0, 0, 0.25);
-  transition: 0.5s ease-in;
+  font-size: var(--font-size-large);
   text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 70px;
+  transition: background-position 0.5s ease-in-out, transform var(--transition-duration);
+  background-size: 200% 200%;
 }
 
 .image-slider {

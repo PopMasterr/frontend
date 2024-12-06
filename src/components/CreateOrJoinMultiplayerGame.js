@@ -86,8 +86,8 @@ function CreateOrJoinMultiplayerGame(params) {
                 <button className="close-button" onClick={params.onClose}><IoCloseCircleOutline /></button>
                 {!isCreateVisible && !isJoinVisible && (
                     <>
-                        <button className="button bigger-button" onClick={() => setIsCreateVisible(true)}>Create Game</button>
-                        <button className="button bigger-button" onClick={() => setIsJoinVisible(true)}>Join Game</button>
+                        <button className="generic-button generic-bigger-button" onClick={() => setIsCreateVisible(true)}>Create Game</button>
+                        <button className="generic-button generic-bigger-button" onClick={() => setIsJoinVisible(true)}>Join Game</button>
                     </>
                 )}
                 {isCreateVisible && (
@@ -96,13 +96,13 @@ function CreateOrJoinMultiplayerGame(params) {
                             <>
                                 <h2>Enter round count:</h2>
                                 <input type="number" placeholder={5} id="roundCount" className="input-text round" max="15" min="1" />
-                                <input type="button" className="button" id="submitRoundCount" value="Submit" onClick={createNewGame} />
+                                <input type="button" className="generic-button" id="submitRoundCount" value="Submit" onClick={createNewGame} />
                                 <IoArrowBackCircleOutline onClick={() => setIsCreateVisible(false)} className="circle-button" />
                             </>
                         ) : (
                             <>
                                 <h2>Game ID: {gameId} <FaRegCopy onClick={copyGameIdToClipboard}  style={{cursor: "pointer"}}/></h2>
-                                <button className="button" onClick={startGame}>Start Game</button>
+                                <button className="generic-button" onClick={startGame}>Start Game</button>
                                 <IoArrowBackCircleOutline onClick={() => {
                                     setIsCreateVisible(false);
                                     setIsInputVisible(true);
@@ -115,7 +115,7 @@ function CreateOrJoinMultiplayerGame(params) {
                     <>
                         <h2>Enter game code:</h2>
                         <input type="text" id="gameCode" className="input-text" />
-                        <input type="button" className="button" id="submitGameCode" value="Submit" onClick={getGameSessionId} />
+                        <input type="button" className="generic-button" id="submitGameCode" value="Submit" onClick={getGameSessionId} />
                         {errorMessage && <p className="error-message">{errorMessage}</p>}
                         <IoArrowBackCircleOutline onClick={() => setIsJoinVisible(false)} className="circle-button" />
                     </>
