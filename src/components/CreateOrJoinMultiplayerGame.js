@@ -22,7 +22,14 @@ function CreateOrJoinMultiplayerGame(params) {
     };
 
     const createNewGame = async () => {
-        const roundCount = document.getElementById("roundCount").value;
+        let roundCount = document.getElementById("roundCount").value;
+        if(roundCount < 1){
+            roundCount = 5
+        } else{
+            if(roundCount > 15){
+                roundCount = 15
+            }
+        }
 
         const response = await fetch(createGameSessionAPI, {
             method: "POST",
