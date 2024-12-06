@@ -132,7 +132,7 @@ function PopGame() {
 
   async function getPopulation() {
     if (loaded) {
-      const result = await fetch(apiURL + "/getScore" + "?guess=" + guess, {
+      const result = await fetch(apiURL + "/getScore?guess=" + guess, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -195,7 +195,7 @@ function PopGame() {
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             />
           ) : (
-            <div class="loader" />
+            <div className="loader" />
           )}
           {loaded && (
             <Rectangle

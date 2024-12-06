@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { MapContainer, TileLayer, Rectangle, useMap } from "react-leaflet";
-import { GameContext } from "../pages/PopGame";
+import { GameContext } from "./PopGame";
 import "leaflet/dist/leaflet.css";
 import Cookies from "js-cookie";
 import "../styles/PopGame.css";
@@ -104,10 +104,10 @@ function Streak() {
     <div className="window">
       <div className="guessingWindow">
         <h1>Press the rectangle with larger population</h1>
-        <button className="color1" onClick={() => getPopulation("blue")}>
+        <button className="generic-button streak-button color1" onClick={() => getPopulation("blue")}>
           Blue rectangle
         </button>
-        <button className="color2" onClick={() => getPopulation("red")}>
+        <button className="generic-button streak-button color2" onClick={() => getPopulation("red")}>
           Red rectangle
         </button>
       </div>
@@ -122,7 +122,7 @@ function Streak() {
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             />
           ) : (
-            <div class="loader" />
+            <div className="loader" />
           )}
           {loaded && (
             <Rectangle

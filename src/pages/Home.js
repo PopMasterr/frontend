@@ -40,13 +40,13 @@ function Home() {
             swipeable={false}
           >
             <div>
-              <img src={Dubai} draggable="false" />
+              <img src={Dubai} alt="Dubai" draggable="false" />
             </div>
             <div>
-              <img src={NewYork} draggable="false" />
+              <img src={NewYork} alt="NewYork" draggable="false" />
             </div>
             <div>
-              <img src={Sydney} draggable="false" />
+              <img src={Sydney} alt="Sydney" draggable="false" />
             </div>
           </Carousel>
         </div>

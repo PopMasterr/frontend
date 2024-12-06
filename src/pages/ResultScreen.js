@@ -1,13 +1,12 @@
 import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { MapContainer, TileLayer, Rectangle, useMap } from "react-leaflet";
-import { GameContext } from "../pages/PopGame";
+import { GameContext } from "./PopGame";
 import "leaflet/dist/leaflet.css";
 import "../styles/PopGame.css";
 
 function ResultScreen() {
   const {
-    value,
     setValue,
     guess,
     setGuess,
@@ -53,7 +52,7 @@ function ResultScreen() {
         <p>{score} points</p>
         <h1>{new Intl.NumberFormat("en-US").format(population)}</h1>
         <p>Your guess was {new Intl.NumberFormat("en-US").format(guess)}</p>
-        <button className="generic-button" onClick={handleAgain}>Play again</button>
+        <button className="generic-button guessing-button" onClick={handleAgain}>Play again</button>
       </div>
       <div className="mapWindow">
         <MapContainer

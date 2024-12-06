@@ -4,11 +4,10 @@ import React, {
   useState,
   useCallback,
   useMemo,
-  useRef,
 } from "react";
 import "../styles/Profile.css";
 import DefaultProfile from "../assets/Profile.png";
-import { LoginContext } from "../pages/Login";
+import { LoginContext } from "./Login";
 import Cookies from "js-cookie";
 import { Badges } from "../helpers/Badges";
 import klaustukas from "../assets/klaustukas.png";

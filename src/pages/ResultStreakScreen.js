@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MapContainer, TileLayer, Rectangle, useMap } from "react-leaflet";
-import { GameContext } from "../pages/PopGame";
+import { GameContext } from "./PopGame";
 import Cookies from "js-cookie";
 import "leaflet/dist/leaflet.css";
 import "../styles/ResultScreen.css";
@@ -120,7 +120,7 @@ function ResultScreen() {
       <div className="guessingWindow">
         <h1>{displayScore()}</h1>
         <h1>Current Streak: {streakScore}</h1>
-        <button onClick={handleAgain}>
+        <button className="generic-button guessing-button" onClick={handleAgain}>
           {correct ? "Continue" : "Play again"}
         </button>
         <p>High Score: {highestStreak}</p>

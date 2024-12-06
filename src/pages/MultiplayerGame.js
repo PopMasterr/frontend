@@ -134,7 +134,7 @@ function MultiplayerGame() {
                         e.key === "Enter" && getPopulation();
                     }}
                 />
-                <button className="color1" onClick={getPopulation}>
+                <button className="generic-button guessing-button" onClick={getPopulation}>
                     Guess
                 </button>
             </div>

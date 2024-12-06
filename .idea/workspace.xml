@@ -6,14 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="e5f4009e-9c03-4f2b-90d4-a175d190fe30" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CreateOrJoinMultiplayerGame.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CreateOrJoinMultiplayerGame.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CropScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CropScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Multiplayer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MultiplayerGame.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MultiplayerGame.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/PopGame.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/PopGame.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ResultMultiplayerScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ResultMultiplayerScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/ResultScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ResultScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/CreateOrJoinMultiplayerGame.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/CreateOrJoinMultiplayerGame.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/Home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/PopGame.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/PopGame.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ResultStreakScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ResultStreakScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Signup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Streak.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Streak.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/StreakGame.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/ResultScreen.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/ResultScreen.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

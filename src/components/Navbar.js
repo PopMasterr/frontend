@@ -51,7 +51,7 @@ function Navbar() {
   return (
     <div className="navbar">
       <div className="leftSide">
-        <img src={Logo} onClick={handlePic} />
+        <img src={Logo} alt="Logo" onClick={handlePic} />
         <Link to="/">
           <h3>POPMASTERR</h3>
         </Link>

@@ -105,7 +105,7 @@ function ResultMultiplayerScreen() {
                 <h1>{new Intl.NumberFormat("en-US").format(population)}</h1>
                 <p>Your guess was {new Intl.NumberFormat("en-US").format(guess)}</p>
                 {round < maxRounds ? (
-                    <button onClick={handleAgain}>Next round!</button>
+                    <button className="generic-button guessing-button" onClick={handleAgain}>Next round!</button>
                 ) : (
                     <h2>This was the final round!</h2>
                 )}

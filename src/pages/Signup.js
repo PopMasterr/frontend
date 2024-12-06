@@ -5,7 +5,6 @@ import { FaUser } from "react-icons/fa";
 import { IoMdEye, IoMdEyeOff, IoMdMail } from "react-icons/io";
 import AuthError from "../components/AuthError";
 import "../styles/PasswordMatchError.css";
-import Cookies from "js-cookie";
 
 function Signup() {
   const apiUrl = process.env.REACT_APP_API + "api/auth/register";

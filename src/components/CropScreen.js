@@ -1,5 +1,4 @@
 import React, {
-    useContext,
     useEffect,
     useState,
     useCallback,
@@ -7,7 +6,6 @@ import React, {
     useRef
 } from "react";
 import "../styles/CropScreen.css";
-import { LoginContext } from "../pages/Login";
 import Cookies from "js-cookie";
 import debounce from "lodash.debounce";
 import "react-image-crop/dist/ReactCrop.css";
@@ -21,8 +19,6 @@ function CropScreen(params) {
     const ref = useRef(null)
     const [tempProfilePicture, setTempProfilePicture] = useState();
     const [crop, setCrop] = useState();
-    const [CropScreenOpen, setCropScreenOpen] = useState(false);
-    const apiURL = process.env.REACT_APP_API + "api/profileImage/upload";
 
     const getAuthHeaders = useMemo(
         () => ({
@@ -124,7 +120,7 @@ function CropScreen(params) {
                             onChange={handleProfilePictureUpload}
                         />
                         {!tempProfilePicture && params.hasProfilePicture && <button className="delete-button" onClick={deleteProfilePicture}>Delete</button>}
-                        {tempProfilePicture && <button class="submit-button" onClick={() => params.onSubmit(tempProfilePicture, crop, width, height)}>Submit</button>}
+                        {tempProfilePicture && <button className="submit-button" onClick={() => params.onSubmit(tempProfilePicture, crop, width, height)}>Submit</button>}
                     </div>
                     }
                     {tempProfilePicture &&
@@ -153,7 +149,7 @@ function CropScreen(params) {
                             onChange={handleProfilePictureUpload}
                         />
                         {!tempProfilePicture && params.hasProfilePicture && <button className="delete-button" onClick={deleteProfilePicture}>Delete</button>}
-                        {tempProfilePicture && <button class="submit-button" onClick={() => params.onSubmit(tempProfilePicture, crop, width, height)}>Submit</button>}
+                        {tempProfilePicture && <button className="submit-button" onClick={() => params.onSubmit(tempProfilePicture, crop, width, height)}>Submit</button>}
                     </div>
                     }
                     {tempProfilePicture && 
