@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext, useEffect} from "react";
 import { Link } from "react-router-dom";
 import BannerImage from "../assets/homeBack.png";
 import "../styles/Home.css";
@@ -8,8 +8,13 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Dubai from "../assets/dubai-min.png";
 import NewYork from "../assets/nyc.webp";
 import Sydney from "../assets/sydney.webp";
+import {LoginContext} from "./Login";
 
 function Home() {
+
+  const { logged, setLogged } = useContext(LoginContext);
+
+
   return (
     <div>
       <div className="home" style={{ backgroundImage: `url(${BannerImage})` }}>
@@ -21,9 +26,15 @@ function Home() {
           <div className="headerContainer">
             <p>Compete to become the POPMASTERR!!!</p>
           </div>
-          <Link id="mygtukas" className="generic-button play-button" to="/play">
-            Play
-          </Link>
+          {logged ? (
+              <Link id="mygtukas" className="generic-button play-button" to="/play">
+                Play
+              </Link>
+          ) : (
+              <Link id="mygtukas" className="generic-button play-button" to="/login">
+                Log In
+              </Link>
+          )}
         </div>
         <div className="image-slider">
           <Carousel
