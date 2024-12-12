@@ -1,7 +1,6 @@
 import React, {
     useEffect,
     useState,
-    useCallback,
     useRef
 } from "react";
 import "../styles/CropScreen.css";
@@ -24,7 +23,32 @@ function CropScreen(params) {
         refreshToken: Cookies.get("RefreshToken"),
     };
 
-    const handleProfilePictureUpload = useCallback(
+    // const handleProfilePictureUpload = useCallback(
+    //     debounce(async (event) => {
+    //         const file = event.target.files[0];
+        
+    //         // Check if the file is an image
+    //         if (!file.type.startsWith("image/")) {
+    //             alert("Please upload a valid image file.");
+    //             return;
+    //         }
+        
+    //         if (file.size > 5 * 1024 * 1024) {
+    //             alert("Please upload an image smaller than 5MB.");
+    //             return;
+    //         }
+        
+    //         const reader = new FileReader();
+    //         reader.addEventListener("load", () => {
+    //             setTempProfilePicture(reader.result);
+    //         });
+        
+    //         reader.readAsDataURL(file);
+    //     }, 300),
+    //     []
+    // );
+
+    const handleProfilePictureUpload = (
         debounce(async (event) => {
             const file = event.target.files[0];
         
@@ -45,8 +69,7 @@ function CropScreen(params) {
             });
         
             reader.readAsDataURL(file);
-        }, 300),
-        []
+        }, 300)
     );
     
     const deleteProfilePicture = async() => {
@@ -82,7 +105,7 @@ function CropScreen(params) {
             setHeight(ref.current.clientHeight)
             setWidth(ref.current.clientWidth)
         }
-    })
+    }, [tempProfilePicture])
 
     return(
         <div className="crop-background">
