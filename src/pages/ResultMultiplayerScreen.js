@@ -67,20 +67,8 @@ function ResultMultiplayerScreen() {
         setValue("");
         setGuess(0);
         navigate("/multiplayergame", { state: { gameId: gameId, round: round + 1, gameCode: gameCode} });
-        sessionStorage.removeItem("reloadas");
     }
 
-    useEffect(() => {
-        // Check if the page is reloaded
-        const isReload =
-            performance.getEntriesByType("navigation")[0].type === "reload";
-
-        if (isReload && sessionStorage.getItem("reloadas")) {
-            handleAgain();
-        } else {
-            sessionStorage.setItem("reloadas", true);
-        }
-    }, []);
 
     useEffect(() => {
         gameRounds(gameId);
