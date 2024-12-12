@@ -2,7 +2,6 @@ import React, {
     useEffect,
     useState,
     useCallback,
-    useMemo,
     useRef
 } from "react";
 import "../styles/CropScreen.css";
@@ -20,13 +19,10 @@ function CropScreen(params) {
     const [tempProfilePicture, setTempProfilePicture] = useState();
     const [crop, setCrop] = useState();
 
-    const getAuthHeaders = useMemo(
-        () => ({
-          authorization: Cookies.get("AuthToken"),
-          refreshToken: Cookies.get("RefreshToken"),
-        }),
-        []
-    );
+    const getAuthHeaders = {
+        authorization: Cookies.get("AuthToken"),
+        refreshToken: Cookies.get("RefreshToken"),
+    };
 
     const handleProfilePictureUpload = useCallback(
         debounce(async (event) => {
@@ -156,6 +152,7 @@ function CropScreen(params) {
                     <div className="crop-image">
                         
                         <ReactCrop
+                            className="crop-image-react"
                             aspect={1}
                             circularCrop
                             crop={crop}

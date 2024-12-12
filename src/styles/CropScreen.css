@@ -36,7 +36,7 @@
     position: relative; /* Position the image */
 }
 
-.crop-image img{
+.crop-image-react{
     max-height: 65vh;
     max-width: calc(65vw - 10px);
     object-fit: contain;
