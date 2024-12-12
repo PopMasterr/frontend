@@ -242,7 +242,7 @@ function Profile() {
                 <p>{badge.description}</p>
                 <img
                     src={badge.obtained ? badge.source : klaustukas}
-                    style={{borderRadius: badge.obtained ? "0" : "50%", border: badge.obtained ? "none" : "initial"}}
+                    style={{borderRadius: badge.obtained ? "0" : "50%", border: badge.obtained ? "none" : "solid 2px black"}}
                     alt="question mark icon"
                 />
                 <h2>{badge.title}</h2>
