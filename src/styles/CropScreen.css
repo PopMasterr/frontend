@@ -30,10 +30,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 70vw;
     height: 70vh; /* Ensure it has a height */
-    margin: 0 auto; /* Center the div horizontally */
-    overflow: hidden; /* Hide any overflow content */
+    width: calc(70vw-10px);
+    margin: 10px; /* Center the div horizontally */
     position: relative; /* Position the image */
 }
 
@@ -88,12 +87,10 @@
 }
 
 .crop-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    position: relative;
     margin: 50px;
+    width: calc(100% - 100px);
+    height: calc(100% - 100px);
     background: rgba(242, 239, 250, 1); /* Dim background */
     display: flex;
     flex-direction: column;
