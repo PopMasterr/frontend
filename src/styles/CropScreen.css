@@ -30,17 +30,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70vh; /* Ensure it has a height */
-    width: calc(70vw-10px);
+    height: 65vh; /* Ensure it has a height */
+    width: calc(65vw - 10px);
     margin: 10px; /* Center the div horizontally */
     position: relative; /* Position the image */
 }
 
-.crop-image img {
-    max-width: auto;
-    max-height: 100%;
-    object-fit: contain; /* Ensure the image fits within the div */
+.crop-image img{
+    max-height: 65vh;
+    max-width: calc(65vw - 10px);
+    object-fit: contain;
 }
+
 
 .react-crop {
     display: flex;
