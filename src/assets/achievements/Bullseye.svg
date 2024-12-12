@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 28.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 43.481 43.481" style="enable-background:new 0 0 43.481 43.481;" xml:space="preserve">
+<g id="Bullseye">
+	<g id="Bullseye_00000039093803284396288930000012915421852827555250_">
+		<g>
+			<circle style="fill:#FFFFFF;stroke:#000000;stroke-width:2;stroke-miterlimit:10;" cx="21.741" cy="21.741" r="20.741"/>
+			<circle style="fill:#FFFFFF;stroke:#EE2D30;stroke-width:2;stroke-miterlimit:10;" cx="21.741" cy="21.741" r="15.097"/>
+			<circle style="fill:#FFFFFF;stroke:#EE2D30;stroke-width:2;stroke-miterlimit:10;" cx="21.741" cy="21.741" r="9.407"/>
+			<circle style="fill:#EE2F32;stroke:#EE2D30;stroke-width:2;stroke-miterlimit:10;" cx="21.741" cy="21.741" r="3.037"/>
+		</g>
+		<g style="opacity:0.5;">
+			<line style="stroke:#000000;stroke-miterlimit:10;" x1="21.839" y1="22.359" x2="4.409" y2="23.781"/>
+			<polygon style="stroke:#000000;stroke-miterlimit:10;" points="6.714,23.593 4.391,21.902 4.642,25.517 			"/>
+			<polygon style="stroke:#000000;stroke-miterlimit:10;" points="21.957,22.132 21.683,22.01 21.607,22.416 			"/>
+			<path style="stroke:#000000;stroke-miterlimit:10;" d="M15.309,22.459l0.087,0.857c0.006,0.063-0.039,0.118-0.102,0.125
+				l-2.231,0.227c-0.063,0.006-0.118-0.039-0.125-0.102l-0.087-0.857c-0.006-0.063,0.039-0.118,0.102-0.125l2.231-0.227
+				C15.246,22.351,15.302,22.396,15.309,22.459z"/>
+		</g>
+		<g>
+			<line style="fill:none;stroke:#B3B5B8;stroke-miterlimit:10;" x1="22.093" y1="22.096" x2="2.984" y2="14.616"/>
+			<polygon style="fill:#7E8083;stroke:#7E8083;stroke-miterlimit:10;" points="5.512,15.606 3.934,12.626 2.337,16.567 			"/>
+			<polygon style="fill:#7E8083;stroke:#7E8083;stroke-miterlimit:10;" points="22.33,21.882 22.076,21.403 21.819,22.037 			"/>
+			<path style="fill:#893207;stroke:#88341C;stroke-miterlimit:10;" d="M15.164,18.819l-0.363,0.986
+				c-0.022,0.059-0.087,0.089-0.146,0.067l-2.506-0.924c-0.059-0.022-0.089-0.087-0.067-0.146l0.363-0.986
+				c0.022-0.059,0.087-0.089,0.146-0.067l2.506,0.924C15.155,18.694,15.186,18.76,15.164,18.819z"/>
+		</g>
+	</g>
+</g>
+<g id="Layer_1">
+</g>
+</svg>

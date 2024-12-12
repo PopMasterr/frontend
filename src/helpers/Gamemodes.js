@@ -1,5 +1,5 @@
-import populiacija from "../assets/Classic.svg";
-import puses from "../assets/Streak.svg";
+import populiacija from "../assets/play/Classic.svg";
+import puses from "../assets/play/Streak.svg";
 
 export const Gamemodes = [
   {

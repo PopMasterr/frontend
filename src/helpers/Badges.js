@@ -95,18 +95,29 @@
 
 // Historical Buff:Guess populations from different historical eras correctly
 
+import firstguessruleBadge from "../assets/achievements/First guess.svg";
+import bullseyeBadge from "../assets/achievements/Bullseye.svg";
+import doubleaceBadge from "../assets/achievements/Double ace.svg";
+import blindshotBadge from "../assets/achievements/Blind shot.svg";
+import rookieBadge from "../assets/achievements/Rookie.svg";
+import brokerBadge from "../assets/achievements/Veteran.svg";
+import veteranBadge from "../assets/achievements/Graveyard shift.svg";
+import noBadge from "../assets/achievements/no.svg";
+
 export const Badges = [
   {
     title: "firstGuessRule",
     id: 1,
     description: "Make your first guess",
     obtained: false,
+    source: firstguessruleBadge,
   },
   {
     title: "bullseye",
     id: 2,
     description: "Guess within 1% of the actual population for the first time",
     obtained: false,
+    source: bullseyeBadge,
   },
   {
     title: "doubleAce",
@@ -114,35 +125,41 @@ export const Badges = [
     description:
       "Guess within 5% of the actual population 10 times (10 perfect guesses)",
     obtained: false,
+    source: doubleaceBadge,
   },
   {
     title: "blindShot",
     id: 4,
     description: "Make a guess that's off by more than 95% (get score 0)",
     obtained: false,
+    source: blindshotBadge,
   },
   {
     title: "rookie",
     id: 5,
     description: "Play 10 rounds",
     obtained: false,
+    source: rookieBadge,
   },
   {
     title: "broker",
     id: 6,
     description: "Play 50 rounds",
     obtained: false,
+    source: brokerBadge,
   },
   {
     title: "veteran",
     id: 7,
     description: "Play 100 rounds",
     obtained: false,
+    source: veteranBadge,
   },
   {
     title: "no",
     id: 8,
     description: "Play 1337 rounds",
     obtained: false,
+    source: noBadge,
   },
 ];

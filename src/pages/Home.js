@@ -1,19 +1,17 @@
-import React, {useContext, useEffect} from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import BannerImage from "../assets/homeBack.png";
 import "../styles/Home.css";
 import { Skaiciai } from "../helpers/FloatingNumbers";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import Dubai from "../assets/dubai-min.png";
-import NewYork from "../assets/nyc.webp";
-import Sydney from "../assets/sydney.webp";
-import {LoginContext} from "./Login";
+import { LoginContext } from "./Login";
+import Dubai from "../assets/carousel/dubai-min.png";
+import NewYork from "../assets/carousel/nyc.webp";
+import Sydney from "../assets/carousel/sydney.webp";
 
 function Home() {
-
   const { logged, setLogged } = useContext(LoginContext);
-
 
   return (
     <div>
@@ -27,13 +25,21 @@ function Home() {
             <p>Compete to become the POPMASTERR!!!</p>
           </div>
           {logged ? (
-              <Link id="mygtukas" className="generic-button play-button" to="/play">
-                Play
-              </Link>
+            <Link
+              id="mygtukas"
+              className="generic-button play-button"
+              to="/play"
+            >
+              Play
+            </Link>
           ) : (
-              <Link id="mygtukas" className="generic-button play-button" to="/login">
-                Log In
-              </Link>
+            <Link
+              id="mygtukas"
+              className="generic-button play-button"
+              to="/login"
+            >
+              Log In
+            </Link>
           )}
         </div>
         <div className="image-slider">

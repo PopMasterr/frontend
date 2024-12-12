@@ -180,10 +180,10 @@ function Profile() {
       }
 
       const result = await response.json();
+      console.log(result);
 
-      if (!result.error) {
+      if (!result.error && !result.message) {
         result.map((id) => (Badges[id - 1].obtained = true));
-        result.map((id) => console.log(Badges[id - 1].obtained));
       }
     } catch (error) {
       console.error(
@@ -240,7 +240,11 @@ function Profile() {
         {Badges.map((badge) => (
           <div key={badge.id} className="badge" title={badge.title}>
             <p>{badge.description}</p>
-            <img src={klaustukas} alt="question mark icon" />
+            <img
+              src={badge.obtained ? badge.source : klaustukas}
+              style={{ border: badge.obtained && "none" }}
+              alt="question mark icon"
+            />
             <h2>{badge.title}</h2>
           </div>
         ))}
