@@ -36,12 +36,11 @@
     position: relative; /* Position the image */
 }
 
-.crop-image-react{
+.crop-image-react {
     max-height: 55vh;
     max-width: 70vw;
     object-fit: contain;
 }
-
 
 .react-crop {
     display: flex;
@@ -75,7 +74,6 @@
     letter-spacing: 1px;
     transition: background-position 0.5s ease-in-out, transform 0.3s;
     background-size: 200% 200%;
-
 }
 
 .upload-button:hover, .delete-button:hover, .submit-button:hover {
@@ -103,6 +101,7 @@
 
 .crop-container h3 {
     max-height: 20vh;
+    margin-top: 50px; /* Add margin to move the text down */
 }
 
 .close-button {
@@ -118,6 +117,7 @@
     justify-content: center;
     color: #333;
     transition: color 0.3s, transform 0.3s;
+    z-index: 101; /* Ensure the close button is above other elements */
 }
 
 .close-button:hover {
@@ -136,4 +136,97 @@
     align-items: center;
     width: 100%;
     height: 100%;
+}
+
+@media (max-width: 768px) {
+    .crop-buttons-row {
+        flex-direction: column;
+        align-items: center; /* Center the buttons */
+        width: 100%; /* Ensure full width */
+    }
+
+    .upload-button, .delete-button, .submit-button {
+        width: 80%;
+        margin: 10px auto;
+    }
+
+    .crop-container {
+        position: relative;
+        margin: 50px;
+        width: calc(100% - 100px);
+        height: calc(100% - 100px);
+        background: rgba(242, 239, 250, 1); /* Dim background */
+        display: flex;
+        flex-direction: column; /* Change to column */
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        z-index: 100;
+    }
+
+    .crop-buttons-row {
+        display: flex;
+        flex-direction: column; /* Change to column */
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-top: 20px; /* Add margin to separate from the image */
+    }
+
+    .crop-buttons-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .crop-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 55vh; /* Ensure it has a height */
+        width: 100%;
+        margin: 10px; /* Center the div horizontally */
+        position: relative; /* Position the image */
+    }
+
+    .crop-image-react {
+        max-height: 55vh;
+        max-width: 100%;
+        object-fit: contain;
+    }
+
+    .crop-screen {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .upload-button, .submit-button {
+        margin-top: 20px;
+    }
+
+    .crop-container h3 {
+        margin-top: 100px; /* Increase margin to move the text further down */
+    }
+
+    .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        font-size: 3rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #333;
+        transition: color 0.3s, transform 0.3s;
+        z-index: 101; /* Ensure the close button is above other elements */
+    }
 }
