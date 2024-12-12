@@ -18,6 +18,8 @@ function Profile() {
   const { username } = useContext(LoginContext);
   const [profilePictureURL, setProfilePictureURL] = useState(DefaultProfile);
   const [CropScreenOpen, setCropScreenOpen] = useState(false);
+  const [loadedBadges, setLoadedBadges] = useState(false);
+
   const apiURL = process.env.REACT_APP_API + "api/profileImage/upload";
   const apiUpdateImageURL =
     process.env.REACT_APP_API + "api/profileImage/updateImage";
@@ -191,6 +193,7 @@ function Profile() {
         error
       );
     }
+    setLoadedBadges(true);
   };
 
   useEffect(() => {
@@ -200,56 +203,60 @@ function Profile() {
   }, []); // Empty dependency array ensures this runs only once
 
   return (
-      <div className="centras">
-        <div className="profile">
-          <div className="profile-personal-info">
-            <div
-                className="circle"
-                style={{backgroundImage: `url(${profilePictureURL})`}}
-            ></div>
-            <button
-                className="edit-button"
-                onClick={() => setCropScreenOpen(!CropScreenOpen)}
-            >
-              <FaPencil/>
-            </button>
-            {CropScreenOpen && (
-                <CropScreen
-                    hasProfilePicture={
-                      profilePictureURL === DefaultProfile ? false : true
-                    }
-                    onClose={() => setCropScreenOpen(false)}
-                    onSubmit={handleProfilePictureChange}
-                />
-            )}
-            <div>{username}</div>
-          </div>
-          <div className="profile-statistics">
-            <h1>Your statistics:</h1>
-            <p>Games played: {gamesPlayed}</p>
-            <p>Total score: {totalScore}</p>
-            <p>Average score: {averageScore}</p>
-            <p>Perfect guesses: {perfectGuesses}</p>
-            <p>Highest streak: {highestStreak}</p>
-          </div>
+    <div className="centras">
+      <div className="profile">
+        <div className="profile-personal-info">
+          <div
+            className="circle"
+            style={{ backgroundImage: `url(${profilePictureURL})` }}
+          ></div>
+          <button
+            className="edit-button"
+            onClick={() => setCropScreenOpen(!CropScreenOpen)}
+          >
+            <FaPencil />
+          </button>
+          {CropScreenOpen && (
+            <CropScreen
+              hasProfilePicture={
+                profilePictureURL === DefaultProfile ? false : true
+              }
+              onClose={() => setCropScreenOpen(false)}
+              onSubmit={handleProfilePictureChange}
+            />
+          )}
+          <div>{username}</div>
         </div>
-        <div className="achievements">
-          <h1>Your achievements</h1>
-        </div>
-        <div className="badges">
-          {Badges.map((badge) => (
-              <div key={badge.id} className="badge" title={badge.title}>
-                <p>{badge.description}</p>
-                <img
-                    src={badge.obtained ? badge.source : klaustukas}
-                    style={{borderRadius: badge.obtained ? "0" : "50%", border: badge.obtained ? "none" : "solid 2px black"}}
-                    alt="question mark icon"
-                />
-                <h2>{badge.title}</h2>
-              </div>
-          ))}
+        <div className="profile-statistics">
+          <h1>Your statistics:</h1>
+          <p>Games played: {gamesPlayed}</p>
+          <p>Total score: {totalScore}</p>
+          <p>Average score: {averageScore}</p>
+          <p>Perfect guesses: {perfectGuesses}</p>
+          <p>Highest streak: {highestStreak}</p>
         </div>
       </div>
+      <div className="achievements">
+        <h1>Your achievements</h1>
+      </div>
+      <div className="badges">
+        {loadedBadges &&
+          Badges.map((badge) => (
+            <div key={badge.id} className="badge" title={badge.title}>
+              <p>{badge.description}</p>
+              <img
+                src={badge.obtained ? badge.source : klaustukas}
+                style={{
+                  borderRadius: badge.obtained ? "0" : "50%",
+                  border: badge.obtained ? "none" : "solid 2px black",
+                }}
+                alt="question mark icon"
+              />
+              <h2>{badge.title}</h2>
+            </div>
+          ))}
+      </div>
+    </div>
   );
 }
 

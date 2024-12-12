@@ -106,21 +106,21 @@ import noBadge from "../assets/achievements/no.svg";
 
 export const Badges = [
   {
-    title: "First guess",
+    title: "First Guess Rule",
     id: 1,
     description: "Make your first guess",
     obtained: false,
     source: firstguessruleBadge,
   },
   {
-    title: "bullseye",
+    title: "Bullseye",
     id: 2,
     description: "Guess within 1% of the actual population for the first time",
     obtained: false,
     source: bullseyeBadge,
   },
   {
-    title: "Double ace",
+    title: "Double Ace",
     id: 3,
     description:
       "Guess within 5% of the actual population 10 times (10 perfect guesses)",
@@ -128,35 +128,35 @@ export const Badges = [
     source: doubleaceBadge,
   },
   {
-    title: "blind shot",
+    title: "Blind Shot",
     id: 4,
     description: "Make a guess that's off by more than 95% (get score 0)",
     obtained: false,
     source: blindshotBadge,
   },
   {
-    title: "rookie",
+    title: "Rookie",
     id: 5,
     description: "Play 10 rounds",
     obtained: false,
     source: rookieBadge,
   },
   {
-    title: "sergeant",
+    title: "Sergeant",
     id: 6,
     description: "Play 50 rounds",
     obtained: false,
     source: brokerBadge,
   },
   {
-    title: "veteran",
+    title: "Veteran",
     id: 7,
     description: "Play 100 rounds",
     obtained: false,
     source: veteranBadge,
   },
   {
-    title: "no",
+    title: "No",
     id: 8,
     description: "Play 1337 rounds",
     obtained: false,

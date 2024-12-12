@@ -1,0 +1,35 @@
+.leaderboards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  border-radius: 40px;
+  width: 40vw;
+  height: 60vh; /* Adjust height as needed */
+  margin: auto; /* Center horizontally */
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center vertically */
+  background-color: #fff;
+}
+
+.leaderboards-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  gap: 2vh;
+}
+
+.leaderboards-buttons button {
+  border-radius: 10px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.leaderboards-buttons button.selected {
+  box-shadow: 0 0 10px 2px rgba(0, 123, 255, 1); /* Glowing effect */
+}

@@ -9,6 +9,7 @@ import Profile from "./pages/Profile";
 import PopGame from "./pages/PopGame";
 import Error from "./pages/Error";
 import Streak from "./pages/Streak";
+import Leaderboards from "./pages/Leaderboards";
 import ResultScreen from "./pages/ResultScreen";
 import ResultStreakScreen from "./pages/ResultStreakScreen";
 import { useState, useEffect, useContext } from "react";
@@ -58,14 +59,23 @@ function App() {
             <Route exact path="/popGame" element={<PopGame />} />
             <Route exact path="/streak" element={<Streak />} />
             <Route exact path="/error" element={<Error />} />
+            <Route exact path="/leaderboards" element={<Leaderboards />} />
             <Route exact path="/resultscreen" element={<ResultScreen />} />
-            <Route exact path="/multiplayergame" element={<MultiplayerGame />} />
+            <Route
+              exact
+              path="/multiplayergame"
+              element={<MultiplayerGame />}
+            />
             <Route
               exact
               path="/resultstreakscreen"
               element={<ResultStreakScreen />}
             />
-            <Route exact path="/resultmultiplayerscreen" element={<ResultMultiplayerScreen />} />
+            <Route
+              exact
+              path="/resultmultiplayerscreen"
+              element={<ResultMultiplayerScreen />}
+            />
           </Routes>
         </Router>
       </div>
