@@ -5,23 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5f4009e-9c03-4f2b-90d4-a175d190fe30" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/assets/home/auswreg.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/home/ppmstr_black.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/home/ppmstr_white.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/home/usa_w_rectangle.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/popcrown.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CropScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CropScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helpers/FloatingNumbers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/FloatingNumbers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Multiplayer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/MultiplayerGame.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MultiplayerGame.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/PopGame.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/PopGame.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ResultMultiplayerScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ResultMultiplayerScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ResultScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ResultScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ResultStreakScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ResultStreakScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Signup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Streak.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Streak.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/StreakGame.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/ResultScreen.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/ResultScreen.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/Home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/Navbar.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +75,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\User\Documents\GitHub\frontend\src\pages" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\GitHub\frontend\src\assets" />
+      <recent name="C:\Users\User\Documents\GitHub\frontend\src\assets\home" />
     </key>
   </component>
   <component name="RunManager">
@@ -165,6 +163,10 @@
       <workItem from="1733488515804" duration="858000" />
       <workItem from="1733499053337" duration="770000" />
       <workItem from="1733503064896" duration="3258000" />
+      <workItem from="1734205775652" duration="148000" />
+      <workItem from="1734254945261" duration="1733000" />
+      <workItem from="1734284770988" duration="3493000" />
+      <workItem from="1734292493062" duration="107000" />
     </task>
     <servers />
   </component>

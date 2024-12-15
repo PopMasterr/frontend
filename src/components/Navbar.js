@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../styles/Navbar.css";
 import { LoginContext } from "../pages/Login";
 import Cookies from "js-cookie";
+import Popmasterr_logo_black from "../assets/home/ppmstr_black.svg";
 
 function Navbar() {
   const { logged, setLogged } = useContext(LoginContext);
@@ -53,7 +54,7 @@ function Navbar() {
       <div className="leftSide">
         <img src={Logo} alt="Logo" onClick={handlePic} />
         <Link to="/">
-          <h3>POPMASTERR</h3>
+          <img className="popmasterr-logo" src={Popmasterr_logo_black} alt="POPMASTERR" draggable="false"/>
         </Link>
       </div>
       <div className="rightSide">

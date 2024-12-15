@@ -9,40 +9,61 @@ import { LoginContext } from "./Login";
 import Dubai from "../assets/carousel/dubai-min.png";
 import NewYork from "../assets/carousel/nyc.webp";
 import Sydney from "../assets/carousel/sydney.webp";
+import Popmasterr_logo_white from "../assets/home/ppmstr_white.svg";
 
 function Home() {
-  const { logged, setLogged } = useContext(LoginContext);
+  const { logged } = useContext(LoginContext);
 
   return (
     <div>
-      <div className="home" style={{ backgroundImage: `url(${BannerImage})` }}>
-        {Skaiciai.map((skaicius, key) => {
+      <div className="home" style={{backgroundImage: `url(${BannerImage})`}}>
+{/*        {Skaiciai.map((skaicius, key) => {
           let Dizainas = skaicius.stilius;
           return <Dizainas key={key}>{skaicius.value}</Dizainas>;
-        })}
+        })}*/}
+{/*tbh nzn ar su sitais kazka daryt, su jais kazkaip cluttered, tai may as well nedaryt ig
+       <div className="image-container left">
+          <img className="side-image left" src={Australia} alt="Australia" draggable="false"/>
+          <div className="number left-number">52,072,635</div>
+      </div>
+      <div className="image-container right">
+        <img className="side-image right" src={USA} alt="USA" draggable="false"/>
+        <div className="number right-number">156,443,351</div>
+      </div>*/}
+
         <div className="textContainer">
           <div className="headerContainer">
-            <p>Compete to become the POPMASTERR!!!</p>
+            <p className="top-of-text top">Guess the population and</p>
+            <p className="top-of-text">Compete to become the</p>
+            <img className="logo" src={Popmasterr_logo_white} alt="POPMASTERR" draggable="false"/>
           </div>
           {logged ? (
-            <Link
-              id="mygtukas"
-              className="generic-button play-button"
-              to="/play"
-            >
-              Play
-            </Link>
+              <Link
+                  id="mygtukas"
+                  className="generic-button play-button"
+                  to="/play"
+              >
+                Play
+              </Link>
           ) : (
-            <Link
-              id="mygtukas"
-              className="generic-button play-button"
-              to="/login"
-            >
-              Log In
-            </Link>
+              <>
+                <Link
+                    id="mygtukas"
+                    className="generic-button play-button"
+                    to="/login"
+                >
+                  Log in!
+                </Link>
+                <Link
+                    className="signUp"
+                    to="/signup"
+                >
+                  or Sign up!
+                </Link>
+              </>
           )}
         </div>
-        <div className="image-slider">
+        {/*        <div className="image-slider">
           <Carousel
             axis="vertical"
             autoPlay={true}
@@ -66,7 +87,7 @@ function Home() {
               <img src={Sydney} alt="Sydney" draggable="false" />
             </div>
           </Carousel>
-        </div>
+        </div>*/}
       </div>
     </div>
   );
