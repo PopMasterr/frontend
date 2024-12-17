@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState, useContext } from "react";
+import { LoginContext } from "./Login";
 import Cookies from "js-cookie";
 import "../styles/Leaderboards.css";
 import BannerImage from "../assets/homeBack.png";
@@ -26,6 +27,7 @@ function Leaderboards() {
   const [uzkroveHighStreak, setUzkroveHighStreak] = useState(0);
   const [uzkrovePerfectGuesses, setUzkrovePerfectGuesses] = useState(0);
   const [uzkroveGamesPlayed, setUzkroveGamesPlayed] = useState(0);
+  const { username } = useContext(LoginContext);
 
   const getAuthHeaders = useMemo(
     () => ({
@@ -189,7 +191,10 @@ function Leaderboards() {
             </thead>
             <tbody>
               {pasirinktas.map((item, key) => (
-                <tr key={key}>
+                <tr
+                  key={key}
+                  className={item.username === username ? "glowing-border" : ""}
+                >
                   <td>{item.username}</td>
                   <td>{secondRow(item)}</td>
                 </tr>
@@ -201,11 +206,5 @@ function Leaderboards() {
     </div>
   );
 }
-
-// New api calls:
-// https://popmasterr-6dc172365df8.herokuapp.com/api/leaderboards/getTopPlayersOfTotalScore
-// https://popmasterr-6dc172365df8.herokuapp.com/api/leaderboards/getTopPlayersOfHighestStreak
-// https://popmasterr-6dc172365df8.herokuapp.com/api/leaderboards/getTopPlayersOfPerfectGuesses
-// https://popmasterr-6dc172365df8.herokuapp.com/api/leaderboards/getTopPlayersOfGamesPlayed
 
 export default Leaderboards;
