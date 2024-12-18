@@ -7,7 +7,10 @@
   font-weight: 400;
   font-style: normal;
   overflow: hidden;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1;
 }
 
@@ -55,7 +58,6 @@
   font-size: 24px;
 }
 
-
 #button {
   border: none;
   background-color: transparent;
@@ -86,18 +88,16 @@
     flex-direction: row;
   }
   .mobileMenu{
-    width: auto;
-    height:auto;
+    top: 70px;
+    width: 100vw;
     bottom:0;
     display:flex;
     flex-direction: column;
     align-items: center;
     text-justify: center;
-    background-color: cyan;
     margin:auto;
     position: absolute;
-    left: 50%;
-    right:50%;
+    z-index: 1000;
   }
   .navbar .rightSide .rightButton{
     display:none;
@@ -110,6 +110,6 @@
     display: block;
   }
   .navbar.expanded {
-    height: 270px;
+    height: 300px;
   }
 }
