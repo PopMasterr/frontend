@@ -66,15 +66,17 @@ function Navbar() {
         <Link className="rightButton" to="/">
           Home
         </Link>
-        {Cookies.get("AuthToken") && (
+        {logged && (
           <Link className="rightButton" to="/leaderboards">
             Leaderboards
           </Link>
         )}
-        <Link className="rightButton" to="/play">
-          Play
-        </Link>
-        {!Cookies.get("AuthToken") ? (
+        {logged && (
+            <Link className="rightButton" to="/play">
+              Play
+            </Link>
+        )}
+        {!logged ? (
           <Link className="rightButton" to="/login">
             Log in
           </Link>
@@ -86,23 +88,27 @@ function Navbar() {
         <Link
           className="rightButton"
           id="button"
-          to={!Cookies.get("AuthToken") ? "/signup" : "/"}
+          to={!logged ? "/signup" : "/"}
           onClick={handleLogout}
         >
-          {!Cookies.get("AuthToken") ? "Sign Up" : "Log out"}
+          {!logged ? "Sign Up" : "Log out"}
         </Link>
       </div>
       <div className={menuOpen ? "mobileMenu" : "mobileMenu hidden"}>
         <Link className="rightButton2" to="/">
           Home
         </Link>
+        {logged && (
         <Link className="rightButton2" to="/leaderboards">
           Leaderboards
         </Link>
+        )}
+        {logged && (
         <Link className="rightButton2" to="/play">
           Play
         </Link>
-        {!Cookies.get("AuthToken") ? (
+        )}
+        {!logged ? (
           <Link className="rightButton2" to="/login">
             Login
           </Link>
@@ -113,10 +119,10 @@ function Navbar() {
         )}
         <Link
           className="rightButton2"
-          to={!Cookies.get("AuthToken") ? "/signup" : "/"}
+          to={!logged ? "/signup" : "/"}
           onClick={handleLogout}
         >
-          {!Cookies.get("AuthToken") ? "SignUp" : "Logout"}
+          {!logged ? "SignUp" : "Logout"}
         </Link>
       </div>
     </div>
