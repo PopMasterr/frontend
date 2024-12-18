@@ -8,7 +8,7 @@
 
 .wrapper {
   width: 420px;
-  background: transparent;
+  background: black;
   border: 2px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(30px);
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);

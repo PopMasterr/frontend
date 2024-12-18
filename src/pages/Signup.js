@@ -5,6 +5,7 @@ import { FaUser } from "react-icons/fa";
 import { IoMdEye, IoMdEyeOff, IoMdMail } from "react-icons/io";
 import AuthError from "../components/AuthError";
 import "../styles/PasswordMatchError.css";
+import BannerImage from "../assets/homeBack.png";
 
 function Signup() {
   const apiUrl = process.env.REACT_APP_API + "api/auth/register";
@@ -72,7 +73,7 @@ function Signup() {
   };
 
   return (
-    <div className="back">
+    <div className="back" style={{backgroundImage: `url(${BannerImage})`}} >
       <div className="wrapper">
         <form action="" onSubmit={handleFormSubmit}>
           <h1>Create an account!</h1>

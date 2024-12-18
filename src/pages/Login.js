@@ -7,6 +7,7 @@ import { IoMdEyeOff } from "react-icons/io";
 import Cookies from "js-cookie";
 import AuthError from "../components/AuthError";
 import "../styles/PasswordMatchError.css";
+import BannerImage from "../assets/homeBack.png";
 
 export const LoginContext = createContext();
 
@@ -76,7 +77,7 @@ function Login() {
 
   return (
     <LoginContext.Provider value={{ username, setUsername, logged, setLogged }}>
-      <div className="back">
+      <div className="back" style={{backgroundImage: `url(${BannerImage})`}}>
         <div className="wrapper">
           <form action="" onSubmit={handleFormSubmit}>
             <h1>Log in</h1>
