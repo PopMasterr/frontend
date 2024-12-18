@@ -48,6 +48,11 @@ function Signup() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert("You have to enter a valid email");
+      return;
+    }
     if (password1 !== password2) {
       setPasswordsMatch(false);
     } else {
@@ -56,19 +61,19 @@ function Signup() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username: username, password: password1 }),
+        body: JSON.stringify({ username: username, email: email, password: password1 }),
       })
-        .then((data) => {
-          console.log("Response data:", data);
-          if (data.status === 201) {
-            navigate("/login");
-          } else if (data.status === 400) {
-            setUsernameTaken(true);
-          } else {
-            setRegisterFailed(true);
-          }
-        })
-        .catch((error) => console.log(error));
+          .then((data) => {
+            console.log("Response data:", data);
+            if (data.status === 201) {
+              navigate("/login");
+            } else if (data.status === 400) {
+              setUsernameTaken(true);
+            } else {
+              setRegisterFailed(true);
+            }
+          })
+          .catch((error) => console.log(error));
     }
   };
 
