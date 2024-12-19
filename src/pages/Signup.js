@@ -85,6 +85,7 @@ function Signup() {
           <div className="input-box">
             <input
               type="text"
+              maxLength="20"
               placeholder="Enter your username"
               onChange={handleUsernameChange}
               required
