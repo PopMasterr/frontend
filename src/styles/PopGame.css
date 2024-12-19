@@ -37,8 +37,10 @@
 }
 
 .map-container{
-    height: 94vh;
+  margin-top: 70px;
+    height: 93vh;
     width:100%;
+
 }
 
 @media (max-width: 768px) {
