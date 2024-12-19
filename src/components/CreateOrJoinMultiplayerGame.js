@@ -54,10 +54,10 @@ function CreateOrJoinMultiplayerGame(params) {
                 "Content-Type": "application/json"
             },
         }).then((gameIdResponse) => gameIdResponse.json());
-        if (!gameIdResponse.error) {
-            navigate("/multiplayergame", { state: { gameId: gameIdResponse, round: 1, gameCode: document.getElementById("gameCode").value } });
-        } else {
+        if (gameIdResponse.error || gameIdResponse.message) {
             setErrorMessage("Code doesn't exist");
+        } else {
+            navigate("/multiplayergame", { state: { gameId: gameIdResponse, round: 1, gameCode: document.getElementById("gameCode").value } });
         }
     }
 
@@ -69,10 +69,10 @@ function CreateOrJoinMultiplayerGame(params) {
                 "Content-Type": "application/json"
             },
         }).then((gameIdResponse) => gameIdResponse.json());
-        if (!gameIdResponse.error) {
-            navigate("/multiplayergame", {state: {gameId: gameIdResponse, round: 1, gameCode: gameId}});
-        } else {
+        if (gameIdResponse.error ) {
             setErrorMessage("Code doesn't exist");
+        } else {
+            navigate("/multiplayergame", {state: {gameId: gameIdResponse, round: 1, gameCode: gameId}});
         }
     }
 
