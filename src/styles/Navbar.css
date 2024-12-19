@@ -11,7 +11,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: 1001;
 }
 
 .navbar .leftSide {
@@ -19,6 +19,7 @@
   max-height:70px;
   display: flex;
   align-items: center;
+  justify-content: left;
   padding-left: 20px;
 }
 
@@ -30,16 +31,17 @@
   cursor: pointer;
 }
 
-.navbar .leftSide img {
-    width: 60px;
-}
-
 .navbar .leftSide .popmasterr-logo {
   width: 225px; /* Increase the width */
   margin-right: auto; /* Push it to the right side */
-  margin-top: 30px;
+  height: auto;
 }
 
+.popmasterr-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .navbar .rightSide {
   flex: 50%;
   height: 100%;
@@ -53,7 +55,7 @@
 .navbar a {
   color: rgb(0, 0, 0);
   text-decoration: none;
-  margin: 15px;
+  margin-left: 15px;
   font-weight: bold;
   font-size: 24px;
 }
@@ -111,5 +113,9 @@
   }
   .navbar.expanded {
     height: 300px;
+  }
+  .navbar .leftSide .popmasterr-logo {
+    width: 150px; /* Increase the width */
+    margin-right: auto; /* Push it to the right side */
   }
 }

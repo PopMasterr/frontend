@@ -3,7 +3,7 @@
     background: var(--dim-background);
     width: 100vw;
     height: 100vh;
-    z-index: 99;
+    z-index: 10001;
     top: 0;
     left: 0;
 }

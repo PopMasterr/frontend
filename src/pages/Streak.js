@@ -104,12 +104,14 @@ function Streak() {
     <div className="window">
       <div className="guessingWindow">
         <h1>Press the rectangle with larger population</h1>
-        <button className="generic-button streak-button color1" onClick={() => getPopulation("blue")}>
-          Blue rectangle
-        </button>
-        <button className="generic-button streak-button color2" onClick={() => getPopulation("red")}>
-          Red rectangle
-        </button>
+        <div className="streak-buttons">
+          <button className="generic-button streak-button color1" onClick={() => getPopulation("blue")}>
+            Blue rectangle
+          </button>
+          <button className="generic-button streak-button color2" onClick={() => getPopulation("red")}>
+            Red rectangle
+          </button>
+        </div>
       </div>
       <div className="mapWindow">
         <MapContainer

@@ -74,7 +74,6 @@
 }
 
 .map-container{
-  height: 94vh;
   width:100%;
 }
 
@@ -90,7 +89,10 @@
   }
   .guessingWindow {
     width: 80vw;
-    margin-bottom:5px;
+    height: calc(30vh - 70px);
+  }
+  .guessingWindow h1, p {
+    margin: 5px;
   }
   .guessingWindow input{
     min-width: 127px;
@@ -102,6 +104,9 @@
     max-width:175px;
   }
   .mapWindow {
-    width: 80vw;
+    width: 100vw;
+  }
+  .streak-buttons button {
+    width: 45vw;
   }
 }
