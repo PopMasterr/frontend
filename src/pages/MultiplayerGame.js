@@ -140,7 +140,7 @@ function MultiplayerGame() {
             </div>
             <div className="mapWindow">
                 <MapContainer
-                    style={{height: "93vh", width: "100%"}}
+                    className="map-container"
                     worldCopyJump={true}
                 >
                     {loaded ? (

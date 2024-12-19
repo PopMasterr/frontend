@@ -129,7 +129,7 @@ function ResultScreen() {
         <MapContainer
           center={[51.505, -0.09]}
           zoom={10}
-          style={{ height: "94vh", width: "100%" }}
+          className="map-container"
         >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
