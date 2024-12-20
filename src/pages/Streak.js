@@ -34,6 +34,7 @@ function Streak() {
   } = useContext(GameContext);
 
   const [loaded, isLoaded] = useState(false);
+  const [sentRequest, setSendRequest] = useState(false);
 
   async function getCoordinates() {
     const result = await fetch(apiURL + "/getStreakCoordinates", {
@@ -62,7 +63,8 @@ function Streak() {
   }
 
   async function getPopulation(kuriSpalva) {
-    if (loaded) {
+    if (loaded && !sentRequest) {
+      setSendRequest(true);
       const result = await fetch(
         apiURL + "/getAnswerIsCorrectAndScore/" + kuriSpalva,
         {

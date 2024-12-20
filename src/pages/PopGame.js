@@ -89,6 +89,7 @@ function PopGame() {
   } = useContext(GameContext);
 
   const [loaded, isLoaded] = useState(false);
+  const [sentRequest, setSendRequest] = useState(false);
 
   const formatNumber = (num) => {
     if (!num) return "";
@@ -131,7 +132,8 @@ function PopGame() {
   }
 
   async function getPopulation() {
-    if (loaded) {
+    if (loaded && !sentRequest) {
+        setSendRequest(true);
       const result = await fetch(apiURL + "/getScore?guess=" + guess, {
         method: "GET",
         headers: {

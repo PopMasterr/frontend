@@ -9,6 +9,7 @@ import { FaRegCopy } from "react-icons/fa";
 
 function MultiplayerGame() {
     const location = useLocation();
+    const [sentRequest, setSendRequest] = useState(false);
     const { gameId, round, gameCode } = location.state;
 
     const getAuthHeaders = {
@@ -78,7 +79,8 @@ function MultiplayerGame() {
 
     async function getPopulation() {
         const getPopulationAPI = process.env.REACT_APP_API + "api/gameRounds/getGameRoundPopulationAndScore";
-        if (loaded) {
+        if (loaded && !sentRequest) {
+            setSendRequest(true);
             const result = await fetch(getPopulationAPI + "?gameSessionId=" + gameId + "&round=" + round + "&guess=" + guess, {
                 method: "GET",
                 headers: {
