@@ -41,7 +41,36 @@
   height: calc(100vh - 70px);
 }
 
+.color1 {
+  background: linear-gradient(to right, #83a4d4, #66fbff);
+  color:black;
+}
+
+.color2 {
+  background: linear-gradient(to right, #d4839d, #d61717);
+  color:black;
+}
+
+.streak-button{
+  margin-top: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  height: 40px;
+  width: 90%;
+  font-size: 20px;
+  box-shadow: -5px 20px 10px 0 rgba(0, 0, 0, 0.25);
+  min-width:100px;
+  max-width:175px;
+}
+
+
 @media (max-width: 768px) {
+
+  .streak-button{
+    font-size: 16px;
+  }
 
   .map-container{
     height: 70vh;

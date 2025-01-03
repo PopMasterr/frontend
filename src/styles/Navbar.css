@@ -115,6 +115,7 @@
   .navbar.expanded {
     height: 300px;
   }
+
   .navbar .leftSide .popmasterr-logo {
     width: 150px; /* Increase the width */
     margin-right: auto; /* Push it to the right side */

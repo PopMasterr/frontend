@@ -87,13 +87,11 @@ function ResultScreen() {
       return (
         <span>
           Correct! <br />
-          <span style={{ color: "blue" }}>
+          <span className={"resultText"} style={{ color: "blue"}}>
             {new Intl.NumberFormat("en-US").format(populationBlue)}
           </span>
-          <br />
-          vs
-          <br />
-          <span style={{ color: "red" }}>
+            &nbsp;vs&nbsp;
+          <span className={"resultText"} style={{ color: "red"}}>
             {new Intl.NumberFormat("en-US").format(populationRed)}
           </span>
         </span>
@@ -105,8 +103,7 @@ function ResultScreen() {
           <span style={{ color: "blue" }}>
             {new Intl.NumberFormat("en-US").format(populationBlue)}
           </span>
-          <br />
-          vs <br />
+             &nbsp;vs&nbsp;
           <span style={{ color: "red" }}>
             {new Intl.NumberFormat("en-US").format(populationRed)}
           </span>
@@ -117,22 +114,24 @@ function ResultScreen() {
 
   return (
     <div className="window">
-      <div className="guessingWindow">
-        <h1>{displayScore()}</h1>
-        <h1>Current Streak: {streakScore}</h1>
-        <button className="generic-button guessing-button" onClick={handleAgain}>
-          {correct ? "Continue" : "Play again"}
-        </button>
-        <p>High Score: {highestStreak}</p>
-      </div>
-      <div className="mapWindow">
-        <MapContainer
-          center={[51.505, -0.09]}
-          zoom={10}
-          className="map-container"
-        >
-          <TileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        <div className="guessingWindow">
+            <h1>{displayScore()}</h1>
+            <div className="streak-container">
+                <h1>Current Streak: {streakScore}</h1>
+                <p>High Score: {highestStreak}</p>
+            </div>
+            <button className="generic-button guessing-button" onClick={handleAgain}>
+                {correct ? "Continue" : "Play again"}
+            </button>
+        </div>
+        <div className="mapWindow">
+            <MapContainer
+                center={[51.505, -0.09]}
+                zoom={10}
+                className="map-container"
+            >
+                <TileLayer
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           />
           <Rectangle
