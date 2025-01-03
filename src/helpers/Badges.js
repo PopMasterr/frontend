@@ -103,6 +103,7 @@ import rookieBadge from "../assets/achievements/Rookie.svg";
 import brokerBadge from "../assets/achievements/Veteran.svg";
 import veteranBadge from "../assets/achievements/Graveyard shift.svg";
 import noBadge from "../assets/achievements/no.svg";
+import bugBuster from "../assets/achievements/BugBuster.svg";
 
 export const Badges = [
   {
@@ -161,5 +162,12 @@ export const Badges = [
     description: "Play 1337 rounds",
     obtained: false,
     source: noBadge,
+  },
+  {
+    title: "Bug Buster",
+    id: 9,
+    description: "Report a bug to developers",
+    obtained: false,
+    source: bugBuster,
   },
 ];

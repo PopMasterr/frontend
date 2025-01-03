@@ -69,6 +69,7 @@ h1 {
   border-radius: 50%; /* Makes it circular */
   object-fit: contain;
   border: 2px solid rgb(98, 91, 91);
+  pointer-events: none;
 }
 
 .badge p {
@@ -109,7 +110,8 @@ h1 {
 
 /* Profile.css for mobile view */
 @media (max-width: 768px) {
-  html, body {
+  html,
+  body {
     overflow-x: hidden;
     width: 100%;
   }
